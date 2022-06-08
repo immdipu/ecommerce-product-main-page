@@ -21,9 +21,9 @@ const cartQuery = document.querySelector('.cart_query')
 const sectionTwo = document.querySelector('.section_two')
 
 
+// SLIDER
 
 product.forEach((item, i) => (item.style.transform = `translateX(${i * 100}%)`))
-
 let currslide = 0;
 const maxSlide = product.length;
 
@@ -95,7 +95,12 @@ close.addEventListener('click', function () {
 
 
 
+
+
+
 let currNumItem = 0;
+
+// TO ADD ITEM 
 
 function adder() {
     currNumItem += 1;
@@ -103,6 +108,7 @@ function adder() {
 
 }
 
+// TO MINUS ITEMS
 
 function subtractor() {
     if (currNumItem > 0) {
@@ -116,6 +122,8 @@ function subtractor() {
 plus.addEventListener('click', adder)
 minus.addEventListener('click', subtractor)
 
+
+// TO SHOW ADDED ITEM ITS DOT NOTIFICATION ON CART
 
 let contnum = 0;
 const counter = function () {
@@ -132,11 +140,14 @@ const counter = function () {
     }
 }
 
+// TO CALCULATE TOTAL COST
 
 const totalCost = function () {
     itemToCheckoutTotalCost.textContent = `$${contnum * 125}.00`
 }
 
+
+// TO ADD IN THE CART
 
 const addtoCartf = function () {
     if (!currNumItem == 0) {
@@ -153,6 +164,7 @@ const addtoCartf = function () {
 addToCart.addEventListener('click', addtoCartf)
 
 
+// SHOW EMPTY CART IF THERE IS NO ITEMS IN THE CART
 
 const emptyCartf = function (cu) {
     if (cu === 0) {
@@ -167,6 +179,8 @@ const emptyCartf = function (cu) {
 emptyCartf(currNumItem);
 
 
+// DELETE ITEM FROM THE CART
+
 
 const delitem = function () {
     if (contnum > 0) {
@@ -177,16 +191,15 @@ const delitem = function () {
     }
 }
 
-
-
-
-
 deleteBtn.addEventListener('click', function () {
     delitem();
     emptyCartf(contnum);
     totalCost();
 
 })
+
+
+// CLOSE CART MENU 
 
 sectionTwo.addEventListener('click', function () {
     cartQuery.classList.remove('activempty')
