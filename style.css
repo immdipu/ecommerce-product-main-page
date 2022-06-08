@@ -453,7 +453,7 @@
 
     .section_two {
         display: flex;
-        padding: 15px 0px 0px 21px;
+        padding: 15px 0px 0px 14px;
         gap: 3rem;
         flex-direction: column;
         align-items: center;
